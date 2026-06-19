@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> <link rel="stylesheet" href="professionnels.css">
+<body>
+    
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+             <div class="sidebar-title">professionels</div>
+             <button class="btn-medical-signup" id="openModalBtn">Rejoindre (Doc)</button>
+            </div>
+        <ul class="user-list" id="prolist"></ul>
+        </aside>
+
+
+        <main class="chat-area" id="chatArea">
+            <div class="empty-chat" id="emptyChatView">
+                <h2>Espace Téléconsultation Lynalab</h2>
+                <p>Sélectionnez un professionnel de Santé a gauche pour démarrer une consultation sécurisée</p>
+            </div>
+
+            <div id="activeChatView" style="display: none; flex-direction: column; flex: 1;">
+                <div class="chat-header">
+                    <div>
+                        <span class="active-name" id="chattHeaderName">Nom</span>
+                        <span class="badge-grade" id="chattHeaderGrade">Grade</span>
+                    </div>
+                    <div class="active-details" id="chatHeaderDetails">Hopital</div>
+                </div>
+
+                <div class="chat-body" id="chatMessages"></div>
+
+                <div class="chat-footer">
+                      <input type="text" class="chat-input" id="messageInput" placeholder="Posez votre question medicale ici...">
+                       <button class="btn-send" id="sendBtn">envoyer</button>
+                </div>
+            </div>
+        </main>
+
+        <div class="modal" id="proModal">
+         <div class="modal-content">
+            <h3>Protocole d'inscription Médicale Certifiée</h3>
+
+            <div class="row">
+                <div class="form-group">
+                    <label>Nom</label>
+                    <input type="text" id="docNom" placeholder="ex: Ndi">
+                </div>
+                <div class="form-group">
+                     <label>Prénom</label>
+                     <input type="text" id="docPrenom" placeholder="ex: jean">
+                </div>
+            </div>
+
+            <div class="row">
+               <div class="form-group">
+                <label>Lieu de Naissance</label>
+                <input type="text" id="docLieuNaissance" placeholder="ex: Douala">
+            </div>
+                 <div class="form-group">
+                   <label>Date de Naissance</label>
+                   <input type="date" id="docDateNaissancee">
+                 </div>
+            </div>
+          
+            <div class="form-group">
+              <label>Résidence Actuelle</label>
+              <input type="text" id="docRésidence" placeholder="ex: Bonapriso, Douala">
+            </div>
+
+            <div class="form-group">
+                <label >Spécialité Médicale</label>
+            <select>
+                 <option value="Médecin Généraliste">Médecin Généraliste</option>
+                  <option value="Pédiatre">Pédiatre</option>
+                     <option value="Cardiologue">Cardiologue</option>
+                      <option value="Gynécologue">Gynécologue</option>
+            </select>
+            </div>
+
+            <div class="form-group">
+                 <label>Zone de travail (Hopital / Clinique d'opération)</label>
+                 <input type="text" id="docHospital" placeholder="ex: hopital Général de Douala">
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <label>Numéro de licence / Ordre des Médecins</label>
+                <input type="text" id="docLicence" placeholder="ex: ONM-2026-XYZ">
+            </div>
+            <div class="form-group">
+                 <label>Années d'expériences (Détermine le Grade)</label>
+                 <input type="number" id="docExperience" min="0" placeholder="ex: 5">
+            </div>
+            </div>
+
+            <div class="location-box">
+                <strong> Autorisation De Géolocalisation Requise</strong>
+                 <p>Pour des raison de sécurité et de conformité d'exercice médical sur Lynalab, vous devez autiriser le site à récupérer votre position géographique actuelle. Tout refus entrainera le rejet immédiat de votre candidature.</p>
+                 <button type="button" id="btnGeolocate" style="padding: 6px; margin-top: 5px; cursor: pointer;">Activer & Vérifier ma position</button>
+                 <span id="locationStatus" style="font-weight: bold; margin-top: 3px;">Statut : Non vérifié</span>
+            </div>
+       
+            <div class="modal-actions">
+            <button class="btn-cancel" id="closeModalBtn">Annuler</button>
+            <button class="btn-save" id="saveProBtn">Soumettre ma candidature</button>
+        </div>
+    </div></div></div>
+</body>
+</html>
